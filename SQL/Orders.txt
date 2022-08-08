@@ -1,0 +1,10 @@
+﻿
+CREATE TABLE IF NOT EXISTS public."Orders"
+(
+    id bigint NOT NULL DEFAULT nextval('"Orders_id_seq"'::regclass),
+    "customerId" bigint NOT NULL DEFAULT nextval('"Orders_customerId_seq"'::regclass),
+    CONSTRAINT "Orders_pkey" PRIMARY KEY (id),
+    CONSTRAINT "Orders_customerId_fkey" FOREIGN KEY ("customerId")
+        REFERENCES public."Customers" (id) 
+
+)
